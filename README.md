@@ -1,37 +1,69 @@
-# Hindi and Sanskrit OCR with PDF Processing
+# PDF to Text Extractor for Maithili Language
 
-This project extracts text from PDF files using Optical Character Recognition (OCR). It is specifically designed to handle **Hindi**, **Sanskrit**, and other Devanagari-based scripts. The project also includes text cleaning, date preservation, and sentence splitting for structured output.
+This project is a Python script that extracts text from PDF files, particularly designed for documents in Maithili or other languages using Devanagari script. It uses OCR (Optical Character Recognition) to convert PDF pages to text, cleans the extracted text, and formats it into sentences.
 
----
+## Features
 
-## 📜 Features
+- Converts PDF files to images
+- Performs OCR on images to extract text
+- Cleans and formats the extracted text
+- Preserves date formats in the text
+- Splits the text into sentences based on Devanagari punctuation
+- Outputs the processed text to a file
 
-- Convert PDFs to images using **poppler**.
-- Perform OCR on images using **Tesseract**, supporting Hindi (`hin`) and Sanskrit (`san`) language models.
-- Clean and preprocess extracted text, preserving dates.
-- Split text into sentences based on Devanagari punctuation marks like `।`.
-- Save the structured sentences into a `.txt` file for easy access.
+## Requirements
 
----
+- Python 3.x
+- pytesseract
+- pdf2image
+- opencv-python (cv2)
+- numpy
+- Tesseract OCR engine
+- Poppler
 
-## 🛠️ Getting Started
+## Installation
 
-### Prerequisites
-1. **Python 3.8+**
+1. Clone this repository:
+   ```
+   git clone https://github.com/HBX814/pdf-to-text-maithili.git
+   ```
+
 2. Install the required Python packages:
-   ```bash
-   pip install pytesseract pdf2image opencv-python-headless numpy
-3. Install Tesseract OCR and ensure it is correctly added to your system's PATH.
-   ```makefile
-   C:\\Program Files\\Tesseract-OCR\\tesseract.exe
-4. Install poppler for PDF to image conversion, and add the bin directory to your PATH.
+   ```
+   pip install pytesseract pdf2image opencv-python numpy
+   ```
 
-## Folder Structure
-   ```bash.
-   ├── main.py               # Main script to run the OCR pipeline
-   ├── Hiaol_Ramanand_ Jha_Raman.pdf  # Input PDF file
-   ├── Hiaol_Ramanand_ Jha_Raman.txt  # Final output text file
-   ├── requirements.txt      # Python dependencies
-   └── README.md             # Documentation
+3. Install Tesseract OCR engine and ensure it's in your system PATH.
 
+4. Install Poppler and note down the path to its bin directory.
+
+## Usage
+
+1. Update the following paths in the script:
+   - Tesseract executable path
+   - Poppler bin directory path
+
+2. Run the script with your PDF file:
+   ```python
+   pdf_path = 'path/to/your/pdf/file.pdf'
+   final_output_path = 'path/to/output/text/file.txt'
+   main(pdf_path, final_output_path)
+   ```
+
+## Functions
+
+- `pdf_to_images(pdf_path)`: Converts PDF to images
+- `ocr_image(image)`: Performs OCR on an image
+- `clean_text(text)`: Cleans the extracted text
+- `split_into_sentences(text)`: Splits text into sentences
+- `main(pdf_path, final_output_path)`: Main function that orchestrates the entire process
+
+## Customization
+
+- Adjust the OCR language model in the `ocr_image` function (e.g., 'hin' for Hindi, 'san' for Sanskrit)
+- Modify the regular expressions in `clean_text` and `split_into_sentences` functions to suit specific text cleaning needs
+
+## Contributing
+
+Contributions to improve the script or extend its functionality are welcome. Please feel free to submit a pull request or open an issue.
 
